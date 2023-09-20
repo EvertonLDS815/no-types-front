@@ -9,7 +9,7 @@ import {Knots} from '../../types/knots'
 function Home() {
     const [nos, setNos] = useState([])
     const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
-    const [noArray, setNoArray] = useState<string>('')
+    const [noArray, setNoArray] = useState<Knots>()
     
     useEffect(() => {
         api.get("/").then((response) => {
@@ -21,14 +21,22 @@ function Home() {
 
         
         
+        
         function getHandleOpen(arr: Knots) {
           setIsModalVisible(true)
-          setNoArray(arr.name)
+          setNoArray(arr)
         }
         
         function getHandleClose() {
           setIsModalVisible(false)
         }
+        useEffect(() => {
+          document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") {
+              getHandleClose();
+            }
+          });
+        }, [getHandleClose]);
         return (
       <>
         <h2>Home</h2>

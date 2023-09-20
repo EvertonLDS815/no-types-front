@@ -1,23 +1,27 @@
 
-import { ModalProps } from '../../types/modal'
+import { Knots } from '../../types/knots';
 import { Container, Info } from '../Modal/styles'
-import { useEffect } from 'react'
+
+
+interface ModalProps {
+    args: Knots;
+    onCloseModal: () => void;
+}
 
 function Modal({args, onCloseModal}: ModalProps) {
 
-    useEffect(() => {
-        document.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") {
-            onCloseModal();
-          }
-        });
-      }, [onCloseModal]);
+
+    console.log(args)
+
+
 
     return (
         <Container>
             <Info>
                 <span ><i onClick={onCloseModal} className="bx bx-x"></i></span>
-                <h1>{args}</h1>
+                <h1>{args.name}</h1>
+                <p>{args.description}</p>
+                <span>{args.nivel}</span>
             </Info>
 
         </Container>

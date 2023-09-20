@@ -25,8 +25,10 @@ export const Container = styled.div`
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 4px;
+    cursor: pointer;
   }
   img {
     width: 100%;
+    cursor: pointer;
   }
 `;
