@@ -4,13 +4,15 @@ import { Container, Info } from '../Modal/styles'
 
 
 interface ModalProps {
-    args: Knots;
+    args: Knots | undefined;
     onCloseModal: () => void;
 }
 
 function Modal({args, onCloseModal}: ModalProps) {
 
-
+    if (args === undefined) {
+        return
+    }
     console.log(args)
 
 
@@ -24,6 +26,10 @@ function Modal({args, onCloseModal}: ModalProps) {
                 </div>
                 <div className="cont">
                     <img src={args.linkImage} />
+                    <ul>
+                        {args.nivel && (<li>{args.nivel}</li>)}
+                        {args.type && (<li>{args.type}</li>)}
+                    </ul>
                     <p>{args.description}</p>
                     {args.linkVideo !== "" && (<iframe src={`${args.linkVideo?.replace("watch?v=", "/embed/")}`} title="A loja de conveniência na noite de verão chuvosa 🌧️ Lista de reprodução de Lofi Night Lofi chuvosa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>)}
                 </div>

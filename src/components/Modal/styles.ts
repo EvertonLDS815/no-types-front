@@ -39,10 +39,13 @@ export const Info = styled.div`
     height: 65vh;
 
     img {
-      width: 80%;
+      width: 70%;
       margin: 15px auto;
       display: block;
       transform: translateX(-10px);
+    }
+    ul {
+      display: none;
     }
     iframe {
       height: 230px;
@@ -61,6 +64,17 @@ export const Info = styled.div`
         height: 180px;
         width: 68vw;
         transform: translateX(-8px);
+      }
+    }
+  }
+  @media (max-width: 420px) {
+    .cont ul {
+      display: block;
+      margin: 0 0 25px 20px;
+    }
+    .head-modal {
+      h1 {
+        font-size: 25px;
       }
     }
   }

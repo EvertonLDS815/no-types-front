@@ -37,6 +37,8 @@ function Home() {
             }
           });
         }, [getHandleClose]);
+
+        const image = "https://img.freepik.com/vetores-gratis/glitch-error-404-page-background_23-2148090410.jpg?w=2000";
         return (
       <>
       <Header>
@@ -49,11 +51,12 @@ function Home() {
             <No key={item._id}
               name={item.name}
               description={item.description}
-              linkImage={item.linkImage? item.linkImage : "https://img.freepik.com/vetores-gratis/glitch-error-404-page-background_23-2148090410.jpg?w=2000"}
+              linkImage={item.linkImage? item.linkImage : image}
               type={item.type}
               nivel={item.nivel}
               linkVideo={item.linkVideo}
               onModalClick={getHandleOpen}
+              imageExem={image}
               />
               ))}
         </Container>

@@ -7,4 +7,5 @@ export interface Knots {
   nivel: string;
   type: string;
   onModalClick: (arr: Knots) => void;
+  imageExem: string;
 }

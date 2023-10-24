@@ -9,6 +9,11 @@ export const Header = styled.header`
     justify-content: center;
     gap: 10px;
   }
+  @media (max-width: 420px) {
+    h1 {
+      font-size: 28px;
+    }
+  }
 `;
 
 export const Container = styled.div`
@@ -17,4 +22,11 @@ export const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
+  
+  @media (max-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media (max-width: 520px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
