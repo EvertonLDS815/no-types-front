@@ -31,7 +31,7 @@ function Modal({args, onCloseModal}: ModalProps) {
                         {args.type && (<li>{args.type}</li>)}
                     </ul>
                     <p>{args.description}</p>
-                    {args.linkVideo !== "" && (<iframe src={`${args.linkVideo?.replace("watch?v=", "/embed/")}`} title="A loja de conveniência na noite de verão chuvosa 🌧️ Lista de reprodução de Lofi Night Lofi chuvosa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>)}
+                    {args.linkVideo !== "" && (<iframe src={`${args.linkVideo?.replace("watch?v=", "/embed/")}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>)}
                 </div>
             </Info>
 

@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "outDir": "./dist", // Pasta de saída dos arquivos de build
+    "rootDir": "./src", // Pasta raiz do código-fonte
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
