@@ -2,13 +2,13 @@ import {useEffect, useState} from 'react'
 import No from '../../components/No'
 import api from '../../services/api'
 import Modal from '../../components/Modal'
-import { Container } from './styles'
+import { Header, Container } from './styles'
 
 import {Knots} from '../../types/knots'
 
 function Home() {
     const [nos, setNos] = useState([])
-    const [isModalVisible, setIsModalVisible] = useState<boolean>(false)
+    const [isModalVisible, setIsModalVisible] = useState(false)
     const [noArray, setNoArray] = useState<Knots>()
     
     useEffect(() => {
@@ -39,7 +39,10 @@ function Home() {
         }, [getHandleClose]);
         return (
       <>
-        <h2>Home</h2>
+      <Header>
+        <h1 id="title-page">Nós e amarras<img width={83} src="https://server-nos-e-amarras.onrender.com/imgs/nos-e-amarras.jpg" /></h1>
+
+      </Header>
         <Container>
           {isModalVisible && <Modal onCloseModal={getHandleClose} args={noArray} />}
           {nos.map((item: Knots) => (

@@ -31,4 +31,9 @@ export const Container = styled.div`
     width: 100%;
     cursor: pointer;
   }
+  span {
+    color: #aaa;
+    font-weight: 400;
+    font-size: 18px;
+  }
 `;
