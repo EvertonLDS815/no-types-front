@@ -13,8 +13,6 @@ function Modal({args, onCloseModal}: ModalProps) {
     if (args === undefined) {
         return
     }
-    console.log(args)
-
 
 
     return (

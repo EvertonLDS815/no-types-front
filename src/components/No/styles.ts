@@ -26,6 +26,7 @@ export const Container = styled.div`
     font-weight: 600;
     margin-bottom: 4px;
     cursor: pointer;
+    word-wrap: break-word;
   }
   img {
     width: 100%;

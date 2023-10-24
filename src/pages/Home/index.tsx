@@ -5,6 +5,7 @@ import Modal from '../../components/Modal'
 import { Header, Container } from './styles'
 
 import {Knots} from '../../types/knots'
+import imageLogo from '../../assets/nos-e-amarras.jpg'
 
 function Home() {
     const [nos, setNos] = useState([])
@@ -42,7 +43,7 @@ function Home() {
         return (
       <>
       <Header>
-        <h1 id="title-page">Nós e amarras<img width={83} src="https://server-nos-e-amarras.onrender.com/imgs/nos-e-amarras.jpg" /></h1>
+        <h1 id="title-page">Nós e amarras<img width={83} src={imageLogo} /></h1>
 
       </Header>
         <Container>
