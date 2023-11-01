@@ -60,7 +60,7 @@ export const Info = styled.div`
 
     @media (max-width: 580px) {
       iframe {
-        width: 68vw;
+        width: 70vw;
         transform: translateX(-8px);
       }
     }
