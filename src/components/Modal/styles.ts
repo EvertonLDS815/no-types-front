@@ -47,35 +47,42 @@ export const Info = styled.div`
     ul {
       display: none;
     }
+    p {
+      padding-right: 10px;
+    }
     iframe {
-      height: 230px;
       width: 400px;
+      aspect-ratio: 16/9;
       margin: 30px auto;
       display: block;
       transform: translateX(-10px);
     }
 
     @media (max-width: 580px) {
-      img {
-        width: 92%;
-        transform: translateX(-8px);
-      }
       iframe {
-        height: 180px;
         width: 68vw;
         transform: translateX(-8px);
       }
     }
   }
-  @media (max-width: 420px) {
+  @media (max-width: 430px) {
     .cont ul {
       display: block;
       margin: 0 0 25px 20px;
     }
+    .cont img {
+        width: 92%;
+        transform: translateX(-8px);
+      }
     .head-modal {
       h1 {
         font-size: 25px;
       }
+    }
+  }
+  @media (max-height: 400px) {
+    .cont {
+      height: 50vh;
     }
   }
 
