@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3001',
+  baseURL: 'https://knots-javascript-el.vercel.app/',
 });
 
 export default api;
