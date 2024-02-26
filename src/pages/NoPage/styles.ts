@@ -32,6 +32,18 @@ export const Container = styled.div`
         border: 2px solid #e9882a;
     }
 
+    .checked {
+        background-color: #0075ff;
+        color: white;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 5px;
+        width: 200px;
+        max-width: 100%;
+    }
     @media (max-width: 700px) {
         .content {
             display: flex;
@@ -55,6 +67,10 @@ export const Container = styled.div`
         }
 
         iframe {
+            width: 100%;
+        }
+
+        .checked {
             width: 100%;
         }
     }
