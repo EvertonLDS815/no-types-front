@@ -2,10 +2,9 @@ export interface Knots {
   _id?: string;
   name: string;
   description?: string;
-  linkImage?: string;
+  linkImage?: string | undefined;
   linkVideo?: string;
   nivel: string;
   type: string;
-  onModalClick: (arr: Knots) => void;
   imageExem: string;
 }
