@@ -14,9 +14,9 @@ function No(props: Knots) {
     }
   }, [props._id]);
 
-  const handleConcluir = () => {
+  const handleChecked = () => {
     setChecked(true);
-    localStorage.setItem(`no_${props._id}_concluido`, 'true');
+    localStorage.setItem(`no_${props._id}_checked`, 'true');
   };
 
   return (
@@ -31,7 +31,7 @@ function No(props: Knots) {
           <h3>{props.name}</h3>
           <span>{props.type}</span>
           <span>{props.nivel}</span>
-          {!checked && <button onClick={handleConcluir}>Concluir</button>}
+          {!checked && <button onClick={handleChecked}>Concluir</button>}
         </Container>
       )}
     </>

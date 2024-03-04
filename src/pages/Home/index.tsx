@@ -20,7 +20,8 @@ function Home() {
         return (
       <>
         <Header />
-        <Container>
+        {nos.length > 0 && (
+          <Container>
           {nos.map((item: Knots) => (
             <No key={item._id}
               _id={item._id}
@@ -34,6 +35,7 @@ function Home() {
               />
               ))}
         </Container>
+        )}
       </>
     )
   }

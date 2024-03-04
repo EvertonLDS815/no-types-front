@@ -50,7 +50,14 @@ function NoPage() {
           <Link to={no.linkImage ? no.linkImage : no.imageExem} target='_blank'>
             <img src={no.linkImage} alt={no.name} />
           </Link>
-          <p>{no.description}</p>
+          <div>
+            <p>{no.description}</p>
+
+            <ul>
+              <li>{no.type}</li>
+              <li>{no.nivel}</li>
+            </ul>
+          </div>
         </div>
 
         {no.linkVideo !== "" && (

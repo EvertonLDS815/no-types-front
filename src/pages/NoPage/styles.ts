@@ -14,6 +14,8 @@ export const Container = styled.div`
 
     .content {
         display: flex;
+        align-items: flex-start;
+        
         a {
             margin-right: 1rem;
             display: inline-flex;
@@ -21,6 +23,10 @@ export const Container = styled.div`
         a img {
             width: 320px;
             border: 2px solid #ddd;
+        }
+
+        ul {
+            padding: 1.1rem;
         }
     }
 
@@ -63,7 +69,7 @@ export const Container = styled.div`
 
     @media(max-width: 450px) {
         .content a img {
-                width: 80vw;
+            width: 80vw;
         }
 
         iframe {
