@@ -14,7 +14,7 @@ function NoPage() {
       try {
         const response = await api.get(`/no/${id}`);
         setNo(response.data);
-        const statusChecked = localStorage.getItem(`no_${id}_concluido`);
+        const statusChecked = localStorage.getItem(`no_${id}_checked`);
         if (statusChecked === 'true') {
           setChecked(true);
         }
@@ -32,7 +32,7 @@ function NoPage() {
 
   const handleConcluir = () => {
     setChecked(true);
-    localStorage.setItem(`no_${id}_concluido`, 'true');
+    localStorage.setItem(`no_${id}_checked`, 'true');
   };
 
   if (no === undefined) {
