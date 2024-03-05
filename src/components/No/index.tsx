@@ -8,7 +8,7 @@ function No(props: Knots) {
     const [checked, setChecked] = useState<boolean>(false);
 
   useEffect(() => {
-    const statusChecked = localStorage.getItem(`no_${props._id}_concluido`);
+    const statusChecked = localStorage.getItem(`no_${props._id}_checked`);
     if (statusChecked === 'true') {
         setChecked(true);
     }
