@@ -1,3 +1,5 @@
+// styles.ts
+
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -47,9 +49,44 @@ export const Container = styled.div`
         font-weight: 600;
         cursor: pointer;
         padding: 5px;
+        display: block;
+        margin: 2rem auto 0;
         width: 200px;
         max-width: 100%;
+        transition: background-color 0.3s ease;
     }
+
+    .checked:hover{
+        background-color: #0053c6;
+    }
+    
+    .content-navigate {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        a, .navigation-button{
+            border: none;
+            border-radius: 0.5rem;
+            background-color: #eee;
+            color: black;
+            font-size: 1rem;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+        }
+        a:hover {
+            background-color: #fff;
+        }
+        
+        .navigation-button:hover {
+            background-color: #fff;
+        }
+    }
+    /* Estilos para os botões "Anterior" e "Próximo" */
+    
+
     @media (max-width: 700px) {
         .content {
             display: flex;
@@ -78,6 +115,10 @@ export const Container = styled.div`
 
         .checked {
             width: 100%;
+        }
+
+        .navigation-button:hover {
+            background-color: #d97124;
         }
     }
 `;
