@@ -75,6 +75,12 @@ export const Container = styled.div`
             cursor: pointer;
             padding: 0.5rem 1rem;
             text-decoration: none;
+            transition: background-color 0.1s ease;
+        }
+
+        .navigation-button:disabled, .navigation-button:hover:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
         }
         a:hover {
             background-color: #fff;
