@@ -1,6 +1,6 @@
 // NoPage.js
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 import { Knots } from '../../types/knots';
