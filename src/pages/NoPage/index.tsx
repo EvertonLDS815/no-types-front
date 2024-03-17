@@ -92,8 +92,12 @@ function NoPage() {
             <p>{no.description}</p>
 
             <ul>
-              <li>{no.type}</li>
-              <li>{no.nivel}</li>
+              {no.type && (
+                <li>{no.type}</li>
+              )}
+              {no.nivel && (
+                <li>{no.nivel}</li>
+              )}
             </ul>
           </div>
         </div>
