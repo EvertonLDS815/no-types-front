@@ -55,9 +55,29 @@ export const Container = styled.div`
         max-width: 100%;
         transition: background-color 0.3s ease;
     }
-
+    
     .checked:hover{
         background-color: #0053c6;
+    }
+
+    .unchecked {
+        background-color: #ef9c04;
+        color: white;
+        border: none;
+        border-radius: 1rem;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        padding: 5px;
+        display: block;
+        margin: 2rem auto 0;
+        width: 200px;
+        max-width: 100%;
+        transition: background-color 0.3s ease;
+    }
+
+    .unchecked:hover {
+        background-color: #b47400;
     }
     
     .content-navigate {
@@ -119,7 +139,7 @@ export const Container = styled.div`
             width: 100%;
         }
 
-        .checked {
+        .checked, .unchecked{
             width: 100%;
         }
 

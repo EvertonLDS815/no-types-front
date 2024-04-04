@@ -45,6 +45,7 @@ function NoPage() {
         // Encontra o índice do nó atual
         const currentIndex = filteredNodes.findIndex((node: Knots) => node._id === id);
 
+        console.log(currentIndex)
         // Define os IDs dos nós anterior e próximo
         setPrevId(currentIndex > 0 ? filteredNodes[currentIndex - 1]._id : null);
         setNextId(currentIndex < filteredNodes.length - 1 ? filteredNodes[currentIndex + 1]._id : null);
@@ -56,24 +57,29 @@ function NoPage() {
     fetchNodes();
   }, [id]);
 
-  const handleChecked = () => {
+  function handleChecked() {
     setChecked(true);
     localStorage.setItem(`no_${id}_checked`, 'true');
-  };
+  }
 
-  const handlePrev = () => {
+  function handleUnChecked() {
+    setChecked(false);
+    localStorage.removeItem(`no_${id}_checked`);
+  }
+
+  function handlePrev() {
     if (prevId) {
       navigate(`/no/${prevId}`);
       window.scrollTo(0, 0); // Rola para o topo da página
     }
-  };
+  }
 
-  const handleNext = () => {
+  function handleNext() {
     if (nextId) {
       navigate(`/no/${nextId}`);
       window.scrollTo(0, 0); // Rola para o topo da página
     }
-  };
+  }
 
   if (!no) {
     return <h2 style={{ padding: '2rem', fontSize: 23 }}>Carregando...</h2>;
@@ -115,6 +121,7 @@ function NoPage() {
 
         {/* Renderiza o botão de concluir somente se o card não estiver concluído */}
         {!checked && <button className="checked" onClick={handleChecked}>Concluir o Nó</button>}
+        {checked && <button className="unchecked" onClick={handleUnChecked}>Remover</button>}
       </Container>
     </>
   )
