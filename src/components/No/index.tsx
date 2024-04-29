@@ -21,14 +21,18 @@ function No(props: Knots) {
 
   return (
     <>
-      {props.linkImage !== props.imageExem && (
+      {props.linkImage && (
         <Container className={checked ? 'concluido' : ''}>
           <div className="image-link">
             <Link to={`/no/${props._id}`}>
               <img src={props.linkImage} alt={props.name}/>
             </Link>
           </div>
-          <h3>{props.name}</h3>
+          <h3>
+            <Link to={`/no/${props._id}`}>
+              {props.name}
+            </Link>
+          </h3>
           <span>{props.type}</span>
           <span>{props.nivel}</span>
           {!checked && <button onClick={handleChecked}>Concluir</button>}

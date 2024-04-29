@@ -32,6 +32,11 @@ export const Container = styled.div`
     margin-bottom: 4px;
     cursor: pointer;
     word-wrap: break-word;
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
   }
   img {
     width: 100%;

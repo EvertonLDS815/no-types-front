@@ -27,11 +27,13 @@ function NoPage() {
         }
       } catch (error) {
         console.log("Nó não encontrado", error);
+        navigate('/', { replace: true});
+        return;
       }
     }
 
     loadNo();
-  }, [id]);
+  }, [navigate, id]);
 
   useEffect(() => {
     async function fetchNodes() {
@@ -45,7 +47,6 @@ function NoPage() {
         // Encontra o índice do nó atual
         const currentIndex = filteredNodes.findIndex((node: Knots) => node._id === id);
 
-        console.log(currentIndex)
         // Define os IDs dos nós anterior e próximo
         setPrevId(currentIndex > 0 ? filteredNodes[currentIndex - 1]._id : null);
         setNextId(currentIndex < filteredNodes.length - 1 ? filteredNodes[currentIndex + 1]._id : null);
@@ -91,7 +92,7 @@ function NoPage() {
         <h2>{no.name}</h2>
 
         <div className="content">
-          <Link to={no.linkImage ? no.linkImage : no.imageExem} target='_blank'>
+          <Link to={no.linkImage} target='_blank'>
             <img src={no.linkImage} alt={no.name} />
           </Link>
           <div>
