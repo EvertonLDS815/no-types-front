@@ -20,15 +20,10 @@ function NoPage() {
         const response = await api.get(`/no/${id}`);
         setNo(response.data);
         const statusChecked = localStorage.getItem(`no_${id}_checked`);
-        if (statusChecked === 'true') {
-          setChecked(true);
-        } else {
-          setChecked(false);
-        }
+        setChecked(statusChecked === 'true');
       } catch (error) {
         console.log("Nó não encontrado", error);
-        navigate('/', { replace: true});
-        return;
+        navigate('/', { replace: true });
       }
     }
 
@@ -58,6 +53,22 @@ function NoPage() {
     fetchNodes();
   }, [id]);
 
+  useEffect(() => {
+    // Desliga o comportamento de restaurar scroll do navegador
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    window.scrollTo({ top: 0, behavior: "auto" });
+
+    return () => {
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "auto";
+      }
+    };
+  }, [id]);
+
+
   function handleChecked() {
     setChecked(true);
     localStorage.setItem(`no_${id}_checked`, 'true');
@@ -71,14 +82,12 @@ function NoPage() {
   function handlePrev() {
     if (prevId) {
       navigate(`/no/${prevId}`);
-      window.scrollTo(0, 0); // Rola para o topo da página
     }
   }
 
   function handleNext() {
     if (nextId) {
       navigate(`/no/${nextId}`);
-      window.scrollTo(0, 0); // Rola para o topo da página
     }
   }
 
@@ -88,44 +97,45 @@ function NoPage() {
 
   return (
     <>
-      <Container>
+      <Container key={id}>
         <h2>{no.name}</h2>
 
         <div className="content">
-          <Link to={no.linkImage} target='_blank'>
-            <img src={no.linkImage} alt={no.name} />
+          <Link to={no.linkImage} target="_blank">
+            <img key={`img-${id}`} src={no.linkImage} alt={no.name} />
           </Link>
           <div>
             <p>{no.description}</p>
 
             <ul>
-              {no.type && (
-                <li>{no.type}</li>
-              )}
-              {no.nivel && (
-                <li>{no.nivel}</li>
-              )}
+              {no.type && <li>{no.type}</li>}
+              {no.nivel && <li>{no.nivel}</li>}
             </ul>
           </div>
         </div>
 
-        {no.linkVideo !== "" && (
-          <iframe src={`${no.linkVideo?.replace("watch?v=", "/embed/")}`} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
+        {no.linkVideo && no.linkVideo !== "" && (
+          <iframe
+            key={`video-${id}`}
+            src={`${no.linkVideo.replace("watch?v=", "/embed/")}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+          ></iframe>
         )}
 
-        {/* Renderiza os botões de navegação */}
+        {/* Botões de navegação */}
         <div className="content-navigate">
           <a href="/">Home</a>
           <button className="navigation-button" disabled={!prevId} onClick={handlePrev}>Anterior</button>
           <button className="navigation-button" disabled={!nextId} onClick={handleNext}>Próximo</button>
         </div>
 
-        {/* Renderiza o botão de concluir somente se o card não estiver concluído */}
+        {/* Botões de concluir/remover */}
         {!checked && <button className="checked" onClick={handleChecked}>Concluir o Nó</button>}
         {checked && <button className="unchecked" onClick={handleUnChecked}>Remover</button>}
       </Container>
     </>
-  )
+  );
 }
 
 export default NoPage;
